@@ -10,7 +10,7 @@ public class KeyGen {
         p = new BigInteger(100, random).nextProbablePrime();
         q = new BigInteger(100, random).nextProbablePrime();
         while (count < 3){
-            if (mr.MR(p) == false) count++;
+            if (mr.MR(p) == true) count++;
             else{
                 p = new BigInteger(100, random).nextProbablePrime();
                 count = 0;
@@ -18,7 +18,7 @@ public class KeyGen {
         }
         count = 0;
         while (count < 3){
-            if (mr.MR(q) == false) count++;
+            if (mr.MR(q) == true) count++;
             else{
                 q = new BigInteger(100, random).nextProbablePrime();
                 count = 0;
