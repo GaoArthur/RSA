@@ -9,14 +9,12 @@ public class MR {
         Random random = new Random();
         BigInteger a;
         a = new BigInteger(5,random);
-        //a = new BigInteger((n.subtract(BigInteger.ONE)).bitLength()-1,random);
         BigInteger t = n.subtract(BigInteger.ONE);
         int s = 0;
         BigInteger d = t;
 
         while (d.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
             d = d.divide(BigInteger.TWO);
-            //d = d.mod(BigInteger.TWO);
             s++;
         }
 
