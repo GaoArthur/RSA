@@ -11,7 +11,7 @@ public class EEA {
 
     public BigInteger[] exGCD(BigInteger a, BigInteger b) {
         //x0 = 1, x1 = 0, q = a/b, x = q*x1+x0, y = q*y1+y0
-        int count=0;
+        int count = 0;
         BigInteger temp, r, q;
         BigInteger[] x = {BigInteger.ONE, BigInteger.ZERO, BigInteger.ZERO};
         BigInteger[] y = {BigInteger.ZERO, BigInteger.ONE, BigInteger.ZERO};
@@ -24,14 +24,19 @@ public class EEA {
             temp = b;
             a = b;
             b = r;
-            x[0]=x[1];
-            x[1]=x[2];
-            y[0]=y[1];
-            y[1]=y[2];
+            x[0] = x[1];
+            x[1] = x[2];
+            y[0] = y[1];
+            y[1] = y[2];
             count++;
         } while (!r.equals(BigInteger.ZERO));
-        if(count%2!=0)x[0]=x[0].negate();
-        BigInteger[] result = {a,x[0]};
+        y[0]=y[0].negate();
+        if (count % 2 != 0) {
+            x[0] = x[0].negate();
+            y[0] = y[0].negate();
+        }
+        BigInteger[] result = {a, x[0]};
+        System.out.println("x = " + x[0] + "\ny = " + y[0]);
         return result;
     }
 

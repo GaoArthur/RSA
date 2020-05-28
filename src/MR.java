@@ -5,10 +5,10 @@ public class MR {
 
     public boolean MR(BigInteger n) {
 
-        if(n.mod(BigInteger.TWO).equals(0))return false;
+        if (n.mod(BigInteger.TWO).equals(0)) return false;
         Random random = new Random();
         BigInteger a;
-        a = new BigInteger(5,random);
+        a = new BigInteger(5, random);
         BigInteger t = n.subtract(BigInteger.ONE);
         int s = 0;
         BigInteger d = t;
@@ -27,8 +27,8 @@ public class MR {
         BigInteger ex;
         BigInteger minusOne = BigInteger.ONE.negate();
         for (int i = 0; i < s; i++) {
-            ex=BigInteger.TWO.pow(i).multiply(d);
-            if(FME.Fast(a,ex,n).equals(minusOne.mod(n)))
+            ex = BigInteger.TWO.pow(i).multiply(d);
+            if (FME.Fast(a, ex, n).equals(minusOne.mod(n)))
                 return true;
         }
 

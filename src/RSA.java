@@ -13,6 +13,7 @@ public class RSA {
         Random random = new Random();
         BigInteger n = p.multiply(q);
         BigInteger phiN = (p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)));
+        System.out.println("n = " + n + "\nphiN = (p-1)*(q-1) = " + phiN);
         BigInteger e;
         EEA eea = new EEA();
         do {
@@ -20,12 +21,13 @@ public class RSA {
         } while (!eea.gcd(phiN, e).equals(BigInteger.ONE));
         BigInteger d;
         //eeaResult[] is r,x,y
-        BigInteger[] eeaResult = eea.exGCD(e,phiN);
-        if (eeaResult[1].compareTo(BigInteger.ZERO)>0) {
+        BigInteger[] eeaResult = eea.exGCD(e, phiN);
+        if (eeaResult[1].compareTo(BigInteger.ZERO) > 0) {
             d = eeaResult[1];
         } else {
             d = eeaResult[1].add(phiN);
         }
+        System.out.println("Public Key = (" + n + ";" + e + ")" + "\nSecret Key = " + d);
         //pk = (n;e)
         //sk = d;
 
